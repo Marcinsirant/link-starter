@@ -1,0 +1,39 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Django Tailwind</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+</head>
+
+<body class="bg-gray-900 font-serif leading-normal tracking-normal">
+    <section class="flex items-center justify-center h-screen">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 rounded-lg">
+
+
+
+            {% for item in items %}
+                <a href="{{ item.url }}" class="grid justify-items-center block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow  hover:bg-opacity-25 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 hover:scale-105">
+
+                    {% if not item.is_folder %}
+                        <img class="object-scale-down" src="{{ item.image.url }}" alt="{{ item.name }}">
+                    {% endif %}
+                    <div class="items-centertext-gray-700 dark:text-gray-400">{{ item.name }}</div>
+                    <div class="items-centertext-gray-700 dark:text-gray-400">{{ item.parent.id }}</div>
+                </a>
+
+            {% endfor %}
+
+
+
+
+        </div>
+
+    </section>
+
+</div>
+</body>
+</html>
