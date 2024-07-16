@@ -1,6 +1,6 @@
-from django.db import models
-from django.core.exceptions import ValidationError
 from django.contrib import admin, messages
+from django.core.exceptions import ValidationError
+from django.db import models
 from django.shortcuts import redirect
 
 
@@ -13,7 +13,7 @@ class Item(models.Model):
     parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
 
     def is_folder(self):
-        return not self.url and not  self.description and not self.image
+        return not self.url
 
     def check_for_cycle(self):
         seen_items = set()
@@ -26,7 +26,7 @@ class Item(models.Model):
         return False
 
     def __str__(self):
-        return self.name
+        return self.id.__str__() + " " + self.name
 
 
 class ItemAdmin(admin.ModelAdmin):

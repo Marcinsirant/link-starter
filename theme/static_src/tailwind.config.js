@@ -11,7 +11,7 @@ module.exports = {
          * HTML. Paths to Django template files that will contain Tailwind CSS classes.
          */
 
-        /*  Templates within theme app (<tailwind_app_name>/templates), e.g. base.py.html. */
+        /*  Templates within theme app (<tailwind_app_name>/templates), e.g. views.py.html. */
         '../templates/**/*.html',
 
         /*
@@ -39,7 +39,8 @@ module.exports = {
          * Python: If you use Tailwind CSS classes in Python, uncomment the following line
          * and make sure the pattern below matches your project structure.
          */
-        '../../**/*.py'
+        '../../**/*.py',
+        './node_modules/flowbite/**/*.js'
     ],
     theme: {
         extend: {},
@@ -53,5 +54,6 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
+        require('flowbite/plugin')
     ],
 }

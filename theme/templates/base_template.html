@@ -1,0 +1,18 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Starter</title>
+    {% tailwind_css %}
+</head>
+<body>
+<div class="relative">
+    {#    <div class="absolute inset-0 bg-fixed bg-center bg-no-repeat bg-cover" style="background-image: url(https://www.special-ops.pl/media/cache/typical_view/data/202202/273439659-1116974749061189-7240019050198674573-n.jpg);"></div>#}
+    <div class="absolute inset-0 bg-fixed bg-center bg-no-repeat bg-cover"
+         style="background-image: url(/images/images/Sprinkle.svg)"></div>
+    <div class="relative z-10">
+        {% block content %}{% endblock content %}
+    </div>
+</div>
+</body>
+</html>
